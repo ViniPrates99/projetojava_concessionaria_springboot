@@ -3,7 +3,7 @@ package com.vini.garagem.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity // Vai virar uma tabela no banco
+@Entity //vira uma tabela no banco
 public class Model {
 
     @Id
@@ -15,21 +15,20 @@ public class Model {
 
     private String categoria; // ex: sedan, hatch, suv...
 
-    // 🔹 Relação: muitos modelos pertencem a UMA marca
+    //Relação: muitos modelos pertencem a uma marca
     @ManyToOne(optional = false)
     private Brand brand;
 
-    // 🔹 Construtor padrão (obrigatório para o JPA)
     public Model() {}
 
-    // 🔹 Construtor com parâmetros
+    // Construtor com parâmetros
     public Model(String nome, String categoria, Brand brand) {
         this.nome = nome;
         this.categoria = categoria;
         this.brand = brand;
     }
 
-    // 🔹 Getters e Setters
+    //Getters e Setters
     public Long getId() {
         return id;
     }

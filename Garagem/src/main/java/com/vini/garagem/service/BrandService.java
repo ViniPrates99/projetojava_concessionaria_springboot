@@ -22,7 +22,7 @@ public class BrandService {
         return repo.findAll();
     }
 
-    // cria se não existir
+    // Cria a Marca caso não exista
     public Brand getOrCreate(String nome) {
         return repo.findByNomeIgnoreCase(nome)
                 .orElseGet(() -> repo.save(new Brand(nome, null)));

@@ -1,7 +1,7 @@
 package com.vini.garagem.web;
 
 import com.vini.garagem.domain.Brand;
-import com.vini.garagem.domain.Model; // sua entidade
+import com.vini.garagem.domain.Model;
 import com.vini.garagem.domain.Vehicle;
 import com.vini.garagem.domain.VehicleStatus;
 import com.vini.garagem.service.BrandService;
@@ -64,7 +64,7 @@ public class VehiclePageController {
         return "redirect:/ui/vehicles";
     }
 
-    // ---------- NOVO: EDITAR ----------
+    // ---------- EDITAR ----------
     @GetMapping("/{id}/edit")
     public String editForm(@PathVariable Long id, org.springframework.ui.Model view) {
         Vehicle v = vehicleService.get(id);
@@ -82,7 +82,7 @@ public class VehiclePageController {
         return "vehicle-form";
     }
 
-    // ---------- NOVO: ATUALIZAR ----------
+    // ---------- ATUALIZAR ----------
     @PostMapping("/{id}")
     public String update(@PathVariable Long id, @ModelAttribute("form") VehicleForm f) {
         Brand b = brandService.getOrCreate(f.getBrandName());
@@ -96,14 +96,14 @@ public class VehiclePageController {
         return "redirect:/ui/vehicles";
     }
 
-    // ---------- NOVO: EXCLUIR ----------
+    // ---------- EXCLUIR ----------
     @PostMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         vehicleService.delete(id);
         return "redirect:/ui/vehicles";
     }
 
-    // DTO/FORM (agora com id)
+
     public static class VehicleForm {
         private Long id;
         private String brandName;

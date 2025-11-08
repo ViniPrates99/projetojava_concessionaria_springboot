@@ -3,7 +3,7 @@ package com.vini.garagem.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity // Diz que essa classe vai virar uma TABELA no banco
+@Entity // A classe vai virar uma TABELA no banco
 public class Brand {
 
     @Id // Identificador único (chave primária)
@@ -16,16 +16,14 @@ public class Brand {
 
     private String paisOrigem;
 
-    // 🔹 Construtor vazio (obrigatório para o JPA funcionar)
     public Brand() {}
 
-    // 🔹 Construtor com parâmetros (opcional, útil para instanciar rápido)
     public Brand(String nome, String paisOrigem) {
         this.nome = nome;
         this.paisOrigem = paisOrigem;
     }
 
-    // 🔹 Getters e Setters — acesso controlado aos atributos (encapsulamento)
+    //Getters e Setters — acesso controlado aos atributos (encapsulamento)
     public Long getId() {
         return id;
     }

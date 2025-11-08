@@ -5,21 +5,21 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
-@Entity // Essa classe vira uma tabela no banco
+@Entity //vira uma tabela no banco
 public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 🔹 Relações com outras entidades
+    //Relações com outras entidades
     @ManyToOne(optional = false)
     private Brand brand;
 
     @ManyToOne(optional = false)
     private Model model;
 
-    // 🔹 Atributos do veículo
+    //Atributos dos veículos
     @Min(1900)
     private int ano;
 
@@ -32,14 +32,13 @@ public class Vehicle {
     @Min(0)
     private Double quilometragem;
 
-    // 🔹 Enum para status (vamos criar já já)
+    //Enum para status
     @Enumerated(EnumType.STRING)
     private VehicleStatus status = VehicleStatus.DISPONIVEL;
 
-    // 🔹 Construtor vazio (obrigatório)
     public Vehicle() {}
 
-    // 🔹 Construtor completo
+    //Construtor
     public Vehicle(Brand brand, Model model, int ano, String cor, double preco, Double km, VehicleStatus status) {
         this.brand = brand;
         this.model = model;
@@ -50,7 +49,7 @@ public class Vehicle {
         this.status = status;
     }
 
-    // 🔹 Getters e Setters (encapsulamento)
+    //Getters e Setters (encapsulamento)
     public Long getId() { return id; }
 
     public Brand getBrand() { return brand; }
